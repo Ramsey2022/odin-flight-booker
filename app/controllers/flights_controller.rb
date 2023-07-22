@@ -2,20 +2,24 @@ class FlightsController < ApplicationController
   before_action :set_flight, only: %i[ show edit update destroy ]
 
   def index
-    @depart_dates = Flight.all.collect(&:departure_date).sort.uniq
-    @airports = Airport.all
-    return unless params[:origin].present?
+    @airport_options = Airport.all.map { |u| [u.location, u.id] }
+    return if search_params.empty?
 
-    @results = Flight.joins(:origin, :destination).where(origin: { code: params[:origin] }, destination: { code: params[:destination] }).where(departure_date: params[:departure_date])
+    @booking_options = find_booking_options
   end
 
   private
 
-  def set_flight
-    @flight = Flight.find(params[:id])
-  end
+    def search_params
+      params.permit(:origin_id, :destination_id, :departure_date)
+    end
 
-  def flight_params
-    params.require(:flight).permit(:location, :departure_time, :flight_duration, :origin_id, :destination_id)
-  end
+    def find_booking_options
+      if params[:origin_id] == params[:destination_id]
+        flash.now[:alert] = "Please choose two different origin and destination locations!"
+        render :index
+      else
+        BookingOptions.new(search_params).find_flights
+      end
+    end
 end
