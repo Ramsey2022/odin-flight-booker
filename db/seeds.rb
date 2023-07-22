@@ -15,10 +15,4 @@ Airport.find_or_create_by(code: "DFW", location: "Dallas, TX")
 Airport.find_or_create_by(code: "MCO", location: "Orlando, FL")
 Airport.find_or_create_by(code: "DEN", location: "Denver, CO")
 
-start = Time.zone.today
-finish = Time.zone.today + 31.days
-
-(start..finish).each do |date|
-  flight_generator = FlightGenerator.new(date)
-  flight_generator.call
-end
+puts 'Created 8 airports'
