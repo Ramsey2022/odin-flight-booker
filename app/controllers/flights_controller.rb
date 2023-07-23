@@ -1,5 +1,4 @@
 class FlightsController < ApplicationController
-  before_action :set_flight, only: %i[ show edit update destroy ]
 
   def index
     @airport_options = Airport.all.map { |u| [u.location, u.id] }
