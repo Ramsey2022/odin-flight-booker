@@ -1,0 +1,12 @@
+<h1>Flight Booker</h1>
+<p>
+  Thank you for your business. Booking #<%= @booking.id %> is confirmed and includes:
+</p>
+<% @booking.flights.distinct.each do |flight| %>
+  <p class="flight-summary">
+    <%= flight.details %> on <%= flight.humanize_date %>
+  </p>
+<% end %>
+<p>
+  Additional details for <%= link_to 'your booking', booking_url(@booking) %> are available online.
+</p>

@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:notice] = "Please check your email for confirmation information!"
+      PassengerMailer.with(booking: @booking).booking_email.deliver_now
       redirect_to @booking
     else
       render :new

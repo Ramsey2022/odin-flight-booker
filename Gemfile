@@ -72,3 +72,4 @@ group :test do
 end
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git'
+gem 'letter_opener', group: :development

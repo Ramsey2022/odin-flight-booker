@@ -1,0 +1,10 @@
+Flight Booker
+=============
+
+Thank you for your business. Booking #<%= @booking.id %> is confirmed and includes:
+
+<% @booking.flights.distinct.each do |flight| %>
+  <%= flight.details %> on <%= flight.humanize_date %>
+<% end %>
+
+Additional details for your booking are available online: <%= @booking.id %>
