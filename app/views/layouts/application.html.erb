@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OdinFlightBooker</title>
+    <title>FlightBooker</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main>
+      <%= link_to root_path do %>
+        <h1>FlightBooker</h1>
+      <% end %>
+      <div class="content-container">
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

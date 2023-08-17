@@ -13,3 +13,205 @@
  *= require_tree .
  *= require_self
  */
+ 
+ :root {
+  --dark-blue: #0047AB;
+  --font-family: Helvetica, sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  align-items: center;
+  background-attachment: fixed;
+  background-color: #2a2a72;
+  background-image: linear-gradient(315deg, #2a2a72 0%, #0098f0 74%);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family);
+  margin: 0;
+  min-height: 100vh;
+  > * { flex: 0 1 auto; }
+}
+
+main {
+  background-color: #e4e4e4;
+  border-radius: 10px;
+  margin: 15px;
+  padding-top: 15px;
+  max-width: 960px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+main a {
+  text-decoration: none;
+  color: #333;
+}
+
+.content-container {
+  padding: 15px;
+}
+
+p.sub-title {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.flight-container {
+  display: flex;
+  flex-direction: column;
+  > * { flex: 0 1 auto; }
+}
+
+.flight-results {
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 0 15px;
+}
+
+p.results-placeholder {
+  color: #5a5a5a;
+}
+
+.flight-results .form-button input {
+  margin-top: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  > * { flex: 0 1 auto; }
+}
+
+.form-field {
+  padding-bottom: 15px;
+}
+
+.form-field select,
+.form-field input {
+  font-family: var(--font-family);
+  padding: 3px;
+  width: 100%;
+}
+
+.form-button input {
+  background-color: var(--dark-blue);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1.2em;
+  line-height: 1.75;
+  margin-top: 10px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.form-button input:hover {
+  cursor: pointer;
+  box-shadow: 3px 3px var(--dark-blue);
+  background-color:  #0098f0;
+}
+
+.radio-button-container {
+  display: grid;
+  grid-row-gap: 15px;
+  grid-template-columns: 30px 1fr;
+}
+
+.radio-button {
+  align-self: center;
+}
+
+@media (min-width: 600px) {
+  .form-button {
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 425px) {
+  .flight-results {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 600px) {
+  .flight-container {
+    flex-direction: row;
+  }
+
+  .flight-results {
+    flex: 1 1 auto;
+    margin: 18px 0 0 30px;
+  }
+}
+
+@media (min-width: 900px) {
+  .flight-results {
+    margin: 18px 0 0 60px;
+    padding: 30px 45px;
+  }
+}
+
+@media (min-width: 600px) {
+  .new-passenger-container {
+    display: flex;
+    flex-direction: row;
+    > * { flex: 1 1 auto; }
+    :first-child {
+      margin-right: 30px;
+    }
+  }
+
+  .booking-section-container {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+  }
+
+  .booking-section-summary {
+    margin-top: 4px; // offset the difference of 1.2em font in the section heading
+    p {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (min-width: 425px) {
+  main {
+    margin: 30px;
+    padding-top: 30px;
+  }
+
+  .content-container {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 900px) {
+  main {
+    margin: 60px;
+    padding-top: 60px;
+  }
+
+  .content-container {
+    padding: 60px;
+  }
+}
