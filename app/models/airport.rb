@@ -1,6 +1,4 @@
 class Airport < ApplicationRecord
-end
-class Airport < ApplicationRecord
   has_many :arriving_flights, class_name: 'Flight',
                               foreign_key: 'destination_id',
                               dependent: :destroy,
